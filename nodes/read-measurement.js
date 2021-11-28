@@ -16,15 +16,15 @@ module.exports = function (RED) {
     var node = this;
 
     this.on('input', function (msg, send, done) {
-      var scd30Promise = RED.nodes.getNode(config.scd30Config).scd30;
+      var scd4xPromise = RED.nodes.getNode(config.scd4xConfig).scd4x;
 
-      scd30Promise
-        .then(function (scd30) {
-          return scd30.readMeasurement();
+      scd4xPromise
+        .then(function (scd4x) {
+          return scd4x.readMeasurement();
         })
         .then(function (measurement) {
           send({
-            topic: 'scd30',
+            topic: 'scd4x',
             payload: measurement
           });
           node.status({fill: 'green', shape: 'dot', text: `${Math.round(measurement.co2Concentration)} ppm at ${formatDate(new Date())}`});

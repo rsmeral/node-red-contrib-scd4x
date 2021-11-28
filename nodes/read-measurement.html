@@ -2,15 +2,15 @@
   RED.nodes.registerType('read-measurement', {
     category: 'sensor',
     defaults: {
-      scd30Config: {value: '', required: true, type: 'scd30-config'},
+      scd4xConfig: {value: '', required: true, type: 'scd4x-config'},
       name: {value: ''}
     },
     label: function () {
-      return this.name || 'scd30'
+      return this.name || 'scd4x'
     },
     inputs: 1,
     outputs: 1,
-    paletteLabel: 'scd30',
+    paletteLabel: 'scd4x',
     icon: 'font-awesome/fa-leaf'
   });
 </script>
@@ -22,8 +22,8 @@
   </div>
 
   <div class="form-row">
-    <label for="node-input-scd30Config"><i class="fa fa-dot-circle-o"></i> I2C bus</label>
-    <input type="text" id="node-input-scd30Config" />
+    <label for="node-input-scd4xConfig"><i class="fa fa-dot-circle-o"></i> I2C bus</label>
+    <input type="text" id="node-input-scd4xConfig" />
   </div>
 </script>
 
