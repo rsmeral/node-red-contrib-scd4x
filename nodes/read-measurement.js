@@ -1,4 +1,4 @@
-var NODE_TYPE = 'read-measurement';
+var NODE_TYPE = 'scd4x-read-measurement';
 
 function formatDate(date) {
   return date.toLocaleDateString('en-US', {

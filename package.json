@@ -1,6 +1,6 @@
 {
   "name": "node-red-contrib-scd4x",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Node-RED node for reading measurements from Sensirion SCD40 and SCD41, the CO2, temperature, and humidity sensors.",
   "repository": "github:rsmeral/node-red-contrib-scd4x",
   "author": "Ron Smeral <ron@smeral.net>",
@@ -21,7 +21,7 @@
   },
   "node-red": {
     "nodes": {
-      "read-measurement": "nodes/read-measurement.js",
+      "scd4x-read-measurement": "nodes/read-measurement.js",
       "scd4x-config": "nodes/scd4x-config.js"
     }
   },
