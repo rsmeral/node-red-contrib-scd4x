@@ -21,8 +21,7 @@
   },
   "node-red": {
     "nodes": {
-      "scd4x-read-measurement": "nodes/read-measurement.js",
-      "scd4x-config": "nodes/scd4x-config.js"
+      "scd4x-read-measurement": "nodes/read-measurement.js"
     }
   },
   "files": [
