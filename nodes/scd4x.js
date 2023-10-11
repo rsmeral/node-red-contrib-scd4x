@@ -84,6 +84,7 @@ const SCD4xInitializer = function (RED) {
 
         const isDataReady = await scd4x.isDataReady();
         if (!isDataReady) {
+          this.warn("Data not ready");
           done();
           return;
         }
