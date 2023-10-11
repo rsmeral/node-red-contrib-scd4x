@@ -1,6 +1,6 @@
 const SCD4x = require("scd4x-node").SCD4x;
 
-const NODE_TYPE = "scd4x-read-measurement";
+const NODE_TYPE = "scd4x";
 
 const formatDate = (date) => {
   return date.toLocaleDateString("en-US", {
@@ -15,8 +15,8 @@ const formatDate = (date) => {
 const sleep = (duration) =>
   new Promise((resolve) => setTimeout(resolve, duration));
 
-const ReadMeasurementInitializer = function (RED) {
-  function ReadMeasurementNode(config) {
+const SCD4xInitializer = function (RED) {
+  function SCD4xNode(config) {
     this.scd4x = null;
 
     const stopPeriodic = async (scd4x) => {
@@ -109,7 +109,7 @@ const ReadMeasurementInitializer = function (RED) {
     });
   }
 
-  RED.nodes.registerType(NODE_TYPE, ReadMeasurementNode);
+  RED.nodes.registerType(NODE_TYPE, SCD4xNode);
 };
 
-module.exports = ReadMeasurementInitializer;
+module.exports = SCD4xInitializer;
