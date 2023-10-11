@@ -6,7 +6,7 @@
       busNumber: { value: 1, validate: RED.validators.number() },
       mode: { value: 'periodic' },
       tempOffset: { value: 4, validate: RED.validators.number() },
-      asc: {value: true}
+      asc: { value: true }
     },
     label: function () {
       return this.name || 'scd4x'
@@ -63,6 +63,9 @@
 
 <script type="text/html" data-help-name="scd4x">
   <p>Reads measurement of CO2 (ppm), temperature (°C), and humidity (%).</p>
+  <h3>Inputs</h3>
+    Input is ignored.
+
   <h3>Outputs</h3>
   <dl class="message-properties">
     <dt>payload
@@ -75,4 +78,16 @@
       </span>
     </dt>
   </dl>
+
+  <h3>Configuration</h3>
+  <p>
+    The default "Temperature Offset" is set to 4, because that's the default set by the manufacturer on the device.
+  </p>
+
+  <h3>References</h3>
+  <ul>
+    <li><a href="https://github.com/rsmeral/node-red-contrib-scd4x">GitHub: node-red-contrib-scd4x</a> – this package</li>
+    <li><a href="https://github.com/rsmeral/scd4x-node">GitHub: scd4x-node</a> – the underlying package providing access to SCD4x</li>
+    <li><a href="https://sensirion.com/media/documents/48C4B7FB/6426E14D/CD_DS_SCD40_SCD41_Datasheet_D1_052023.pdf">SCD40/41 Datasheet</a></li>
+  </ul>
 </script>
