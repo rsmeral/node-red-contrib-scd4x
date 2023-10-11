@@ -17,12 +17,14 @@
     "sensor"
   ],
   "node-red": {
+    "version": ">=3.1.0",
     "nodes": {
       "scd4x": "nodes/scd4x.js"
     }
   },
   "files": [
     "nodes/*",
+    "examples/*",
     "package.json",
     "README.md",
     "LICENSE"
@@ -35,5 +37,8 @@
   },
   "dependencies": {
     "scd4x-node": "^1.0.1"
+  },
+  "engines": {
+    "node": ">=14.0.0"
   }
 }
