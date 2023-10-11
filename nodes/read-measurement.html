@@ -2,8 +2,11 @@
   RED.nodes.registerType('scd4x-read-measurement', {
     category: 'sensor',
     defaults: {
-      scd4xConfig: {value: '', required: true, type: 'scd4x-config'},
-      name: {value: ''}
+      name: { value: '' },
+      busNumber: { value: 1, validate: RED.validators.number() },
+      mode: { value: 'periodic' },
+      tempOffset: { value: 4, validate: RED.validators.number() },
+      asc: {value: true}
     },
     label: function () {
       return this.name || 'scd4x'
@@ -11,8 +14,23 @@
     inputs: 1,
     outputs: 1,
     paletteLabel: 'scd4x',
-    icon: 'font-awesome/fa-leaf'
+    icon: 'font-awesome/fa-leaf',
+    oneditprepare: () => {
+      $("#node-input-mode").typedInput({
+        types: [
+          {
+            value: "periodic",
+            options: [
+              { value: "periodic", label: "Periodic (5s)" },
+              { value: "periodic-lowpower", label: "Periodic Low-power (30s)" }
+            ]
+          }
+        ]
+      })
+    }
   });
+
+
 </script>
 
 <script type="text/html" data-template-name="scd4x-read-measurement">
@@ -22,9 +40,25 @@
   </div>
 
   <div class="form-row">
-    <label for="node-input-scd4xConfig"><i class="fa fa-dot-circle-o"></i> I2C bus</label>
-    <input type="text" id="node-input-scd4xConfig" />
+    <label for="node-input-busNumber"><i class="fa fa-plug"></i> I2C Bus</label>
+    <input type="number" id="node-input-busNumber">
   </div>
+
+  <div class="form-row">
+    <label for="node-input-mode"><i class="fa fa-repeat"></i> Mode</label>
+    <input type="text" id="node-input-mode">
+  </div>
+
+  <fieldset>
+    <div class="form-row">
+      <label for="node-input-tempOffset"><i class="fa fa-thermometer-half"></i> Temperature Offset</label>
+      <input type="number" id="node-input-tempOffset">
+    </div>
+    <div class="form-row">
+      <label for="node-input-asc"><i class="fa fa-dashboard"></i> Automatic Self-calibration</label>
+      <input type="checkbox" id="node-input-asc" style="width: fit-content">
+    </div>
+  </fieldset>
 </script>
 
 <script type="text/html" data-help-name="scd4x-read-measurement">
